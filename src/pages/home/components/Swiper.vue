@@ -1,8 +1,8 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption">
+    <swiper :options="swiperOption" v-if="showSwiper">
 	    <!-- slides -->
-	     <swiper-slide v-for="item in swiperList"><img class="swiper-img" :src="item.imgUrl" alt=""></swiper-slide>
+	     <swiper-slide v-for="item in list"><img class="swiper-img" :src="item.imgUrl" alt=""></swiper-slide>
 	  
 	    <!-- Optional controls -->
 	    <div class="swiper-pagination"  slot="pagination"></div>
@@ -14,27 +14,22 @@
 <script>
 export default {
   name: 'HomeSwiper',
+  props: {
+     list: Array
+  },
   data () {
   	 return {
   	 	swiperOption: {
   	 		pagination: '.swiper-pagination',
-  	 		loop: true
-  	 	},
-  	 	swiperList: [
-	  	 	{
-               id: '0001',
-               imgUrl: 'https://s.qunarzz.com/bnb_hy2/images/home/banner/football.jpg'
-	  	 	},
-	  	 	{
-               id: '0002',
-               imgUrl: 'https://s.qunarzz.com/bnb_hy2/images/home/banner/haibianlang.jpg' 	  	 		
-	  	 	},
-	  	 	{
-               id: '0003',
-               imgUrl: 'https://img1.qunarzz.com/desmisact/images/1805/14/3cc0369fb8b5a.jpg' 	  	 		
-	  	 	}
-  	 	]
-  	 }
+        autoplay: 1000,
+        loop: true
+  	 	}
+  	}
+  },
+  computed: {
+     showSwiper () {
+        return this.list.length
+     }
   }
 }
 </script>
@@ -46,7 +41,7 @@ export default {
   overflow: hidden
   width:100%
   height: 0
-  padding-bottom: 50%
+  padding-bottom: 28%
   .swiper-img
      width: 100%;
      background: #ccc
