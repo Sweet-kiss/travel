@@ -12,7 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
         '/api': {
-            target: 'http://localhost:8084',
+            target: 'http://localhost:8086',
             pathRewrite: {
                 '^/api': '/static/mork'
             }
