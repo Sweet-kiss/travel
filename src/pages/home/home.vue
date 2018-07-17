@@ -1,6 +1,6 @@
 <template>
   <div>
-       <home-header :city="city"></home-header>
+       <home-header></home-header>
        <home-swiper :list="swiperList"></home-swiper>
        <home-icons :icons="iconsList"></home-icons>
        <home-recommend :recommend="recommendList"></home-recommend>
@@ -26,7 +26,6 @@ import HomeWeek from './components/week'
     },
     data () {
       return {
-        city: '',
         swiperList: [],
         iconsList: [],
         recommendList: [],
@@ -40,7 +39,6 @@ import HomeWeek from './components/week'
         getHomeInfoSucc (res) {
             res = res.data
             if (res.ret && res.data) {
-              this.city = res.data.hotCities
               this.swiperList = res.data.swiperList
               this.iconsList = res.data.iconList
               this.recommendList = res.data.recommendList
