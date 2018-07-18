@@ -1,21 +1,24 @@
 <template>
   <div class="cityDetail">
       <city-banner></city-banner>
-      <h2>我的详情页</h2>
-    
+      <detail-header></detail-header>
+      <div class="content"></div>
   </div>
 </template>
 
 <script>
 import CityBanner from './components/Banner'
+import DetailHeader from './components/header'
 export default {
   name: 'cityDetail',
   components: {
-  	CityBanner
+  	CityBanner,
+  	DetailHeader
   }
 }
 </script>
 
-<style>
-
+<style lang="stylus" scoped>
+ .content
+   height: 50rem
 </style>
